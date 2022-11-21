@@ -186,7 +186,83 @@ Nouvelle host :
 ![host avec Termius](./rsc/host.png)
 
 Termius : 
+config ssh de la Machine vm1
   - Host : @ip Machine 1 \
-  - SHH : \
+  - SHH : 22\
     vm1  :  identities \
-    password :  key \
+    password :  test \
+
+port :
+
+ssh : 22
+HTTP : 80
+HTTPS : 443
+FTP : 20 / 21
+#### Connexion Homme - Machine
+
+connexion de vm2 dans vm1 à travers client ssh
+
+```
+vm1@vm1:~$ ssh vm2@192.168.56.102
+```
+
+```
+$ ssh utilisateurDistante@adressIP
+```
+Interrompre la communication avec machine distante
+```
+$ exit
+```
+
+
+## Effectuer les modifications nécessaires pour se connecter à la machine distante sans aucune  demande de mot de passe. 
+
+#### Connexion Machine - Machine
+
+Gener les clé publique : privée avec la methode de cryptage rsa
+```
+ssh-keygen -t rsa
+```
+
+copier la clé public vers Virtuelle distante
+```
+ssh-copy-id utilisateur_distant@adresse_IP_distante
+```
+connexion à Machine distante 
+```
+$ ssh utilisateurDistante@adressIP
+```
+
+
+
+ ## Cloner, exporter et importer une VM. 
+
+
+Cloner : Clic droit sur la VM 🡪 clone 🡪 clone lié (besoin de l’original pour  fonctionner) ou clone intégral (prend plus de place) 
+
+
+
+ Exporter : Fichier -> Exporter un appareil virtuel 
+
+
+
+ c. Importer : Fichier -> Importer un appareil virtuel -> choisir un fichier existant. 9. 
+
+
+
+
+ Utiliser les instantanés (snapshots) : Créer et restaurer. Un snapshot sert à sauvegarder  l’état entier de la machine à un moment donné. On peut créer plusieurs snapshots les unes à la  suite des autres. Une fois la VM est lancée, onglet Machine 🡪 Tools 🡪 Take Snapshot (on  rentre le nom et la description).
+
+
+
+ configurer le nom de domaine de l'adresse d'un site web 
+
+```
+sudo gedit /etc/hosts
+```
+
+[gedit]
+# Ajouter un nom de domaine 
+```
+172.16.1.77 polytech.com.tn
+```
